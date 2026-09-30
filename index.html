@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chamilo Dark Mode</title>
+<meta name="description" content="Dark mode voor Chamilo HOGENT als Chrome-extensie." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0d121b;--panel:#131a26;--line:#243044;--text:#e9edf5;--muted:#8b97ab;--accent:#88a5ff;--accent-ink:#0b1020}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Geist',-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0 0 auto 0;height:520px;background:radial-gradient(60% 100% at 50% 0,rgba(136,165,255,.14),transparent);pointer-events:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{position:relative;max-width:860px;margin:0 auto;padding:0 24px}
+
+header{padding:26px 0;display:flex;align-items:center;gap:12px;font-weight:500}
+header svg{color:var(--accent)}
+
+.hero{text-align:center;padding:72px 0 48px}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.hero p{color:var(--muted);font-size:1.1rem;margin-bottom:32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:10px;font:inherit;font-weight:500;font-size:.95rem;text-decoration:none;border:1px solid transparent;transition:transform .2s,filter .2s,border-color .2s}
+.btn-p{background:var(--accent);color:var(--accent-ink)}
+.btn-p:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.btn-s{border-color:var(--line);color:var(--text)}
+.btn-s:hover{border-color:var(--muted)}
+
+.frame{margin-top:24px;border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.bar{display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.frame img{display:block;width:100%;height:auto}
+.ph{display:none;aspect-ratio:16/9;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem}
+
+.install{padding:96px 0 80px;max-width:600px;margin:0 auto}
+h2{font-size:1.7rem;font-weight:600;letter-spacing:-.02em;margin-bottom:28px}
+ol{list-style:none;counter-reset:s;border-top:1px solid var(--line)}
+li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;padding:18px 0;border-bottom:1px solid var(--line)}
+li::before{content:counter(s);color:var(--accent);font-weight:600}
+li h4{font-weight:500;font-size:1rem}
+li p{color:var(--muted);font-size:.93rem}
+code{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.82rem;background:var(--panel);border:1px solid var(--line);padding:2px 7px;border-radius:5px;color:var(--text)}
+
+footer{border-top:1px solid var(--line);padding:28px 0 40px;text-align:center;color:var(--muted);font-size:.82rem}
+
+@media(max-width:520px){.btn{width:100%;justify-content:center}.hero{padding-top:48px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4a8.5 8.5 0 1 0 10.2 10.2z"/></svg>
+    Chamilo Dark Mode
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Dark mode voor Chamilo HOGENT</h1>
+      <p>Een Chrome-extensie die Chamilo donker maakt.</p>
+      <div class="cta">
+        <a href="chamilo-dark-mode.zip" class="btn btn-p" download>
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+          Download
+        </a>
+        <a href="#installatie" class="btn btn-s">Hoe installeer ik het?</a>
+      </div>
+
+      <div class="frame">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img src="DarkMode.jpg" alt="Chamilo HOGENT in dark mode"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="ph">Plaats DarkMode.jpg in dezelfde map als dit bestand.</div>
+      </div>
+    </section>
+
+    <section class="install" id="installatie">
+      <h2>Installeren</h2>
+      <ol>
+        <li><div><h4>Download en pak uit</h4><p>Pak de ZIP uit in een map, bijvoorbeeld <code>chamilo-dark-mode</code>.</p></div></li>
+        <li><div><h4>Open je extensies</h4><p>Ga naar <code>chrome://extensions</code>.</p></div></li>
+        <li><div><h4>Zet Ontwikkelaarsmodus aan</h4><p>De schakelaar staat rechtsboven.</p></div></li>
+        <li><div><h4>Klik op Uitgepakte extensie laden</h4><p>Die knop verschijnt nadat je de ontwikkelaarsmodus aanzet.</p></div></li>
+        <li><div><h4>Kies de map</h4><p>Selecteer de map die je net hebt uitgepakt. Klaar.</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+</div>
+
+<footer>
+  Niet officieel en niet gelieerd aan HOGENT. Gebruik op eigen risico.
+</footer>
+
+</body>
+</html>
